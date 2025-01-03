@@ -5,33 +5,19 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import {
-  IsString,
-  IsEmail,
-  Length,
-  IsNotEmpty,
-  IsStrongPassword,
-} from 'class-validator';
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  @IsString()
-  @IsNotEmpty()
   name: string;
 
   @Column()
-  @IsEmail() // Validates that the email is in a correct email format
-  @IsNotEmpty() // Validates that the email is not empty
   email: string;
 
   @Column()
-  @IsString()
-  @Length(6, 20) // Password must be between 6 and 20 characters
-  @IsNotEmpty()
-  @IsStrongPassword()
   password: string;
 
   // Automatically sets the created_at field when a user is created
