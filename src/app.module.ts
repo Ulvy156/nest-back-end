@@ -4,13 +4,9 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { databaseConfig } from './config/database.config';
-import { FavouritesModule } from './favourites/favourites.module';
+import { UserRoleModule } from './user-role/user-role.module';
 @Module({
-  imports: [
-    UsersModule,
-    TypeOrmModule.forRoot(databaseConfig),
-    FavouritesModule,
-  ],
+  imports: [UsersModule, TypeOrmModule.forRoot(databaseConfig), UserRoleModule],
   controllers: [AppController],
   providers: [AppService],
 })
